@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OKRと進捗状況</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dist/output.css') }}">
+  <!--<link rel="stylesheet" href="/static/styles.css">-->
+</head>
+<body class="bg-gray-100 p-2 font-sans">
+  <div class="okr-container max-w-4xl mx-auto p-4 bg-white shadow-md rounded-md">
+    <div class="flex justify-between items-center mb-4">
+      <a href="{{ url_for('admin_dashboard') }}" class="text-blue-600 hover:underline">【管理者ダッシュボードに戻る】</a>
+      <a href="{{ url_for('index') }}" class="text-blue-600 hover:underline">【ホームに戻る】</a>
+  </div>
+    <h2 class="text-2xl font-bold text-gray-800 mb-4 text-center border-b pb-3">OKRと進捗状況</h2>
+    <p class="text-gray-600 mb-6 bg-blue-50 p-3 rounded-md border border-blue-200 text-sm">
+      ●数値設定（Key Results）の進捗度合をスライドバーを動かして入力。<br>
+      ●メモ欄に進捗状況の概要を記入してください。
+    </p>
+    <label for="objective" class="block mb-2 font-semibold text-gray-700">【目標】Objective:</label>
+    <input type="text" id="objective" value="現場作業の効率向上" class="w-full p-2 border border-gray-300 rounded-md mb-6 focus:outline-none focus:ring-2 focus:ring-blue-500">
+    
+    <div class="mb-6 p-4 border rounded-md bg-gray-50">
+      <label for="kr1" class="block mb-2 font-medium text-gray-700">〈数値設定〉Key Result 1:<br><strong class="text-blue-700">『作業時間を10％短縮』</strong><br>進捗度合（％）</label>
+      <div class="flex items-center mb-2">
+        <input type="range" id="kr1" min="0" max="100" step="1" value="40" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700 mr-4">
+        <span id="kr1Value" class="font-semibold text-blue-600 w-12 text-right">40%</span>
+      </div>
+      <textarea id="kr1Memo" placeholder="メモを入力" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm" rows="2"></textarea>
+      <button type="button" class="mt-1 px-3 py-1 bg-blue-500 text-white rounded-md hover:bg-blue-600 text-sm">音声入力</button>
+    </div>
+    
+    <div class="mb-6 p-4 border rounded-md bg-gray-50">
+      <label for="kr2" class="block mb-2 font-medium text-gray-700">〈数値設定〉Key Result 2:<br><strong class="text-blue-700">『安全管理のチェックリスト遵守率を95％に』</strong><br>進捗度合（％）</label>
+      <div class="flex items-center mb-2">
+        <input type="range" id="kr2" min="0" max="100" step="1" value="80" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700 mr-4">
+        <span id="kr2Value" class="font-semibold text-blue-600 w-12 text-right">80%</span>
+      </div>
+      <textarea id="kr2Memo" placeholder="メモを入力" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm" rows="2"></textarea>
+      <button type="button" class="mt-1 px-3 py-1 bg-blue-500 text-white rounded-md hover:bg-blue-600 text-sm">音声入力</button>
+    </div>
+    
+    <div class="mb-6 p-4 border rounded-md bg-gray-50">
+      <label for="kr3" class="block mb-2 font-medium text-gray-700">〈数値設定〉Key Result 3:<br><strong class="text-blue-700">『クレーム件数を半減』</strong><br>進捗度合（％）</label>
+      <div class="flex items-center mb-2">
+        <input type="range" id="kr3" min="0" max="100" step="1" value="30" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700 mr-4">
+        <span id="kr3Value" class="font-semibold text-blue-600 w-12 text-right">30%</span>
+      </div>
+      <textarea id="kr3Memo" placeholder="メモを入力" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm" rows="2"></textarea>
+      <button type="button" class="mt-1 px-3 py-1 bg-blue-500 text-white rounded-md hover:bg-blue-600 text-sm">音声入力</button>
+    </div>
+    
+    <div class="text-center mt-6 mb-6">
+      <button id="analyzeBtn" class="px-6 py-2 bg-green-600 text-white font-semibold rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">AI解析実行</button>
+    </div>
+    
+    <div id="resultArea" class="mt-6 p-4 border rounded-md bg-gray-100 min-h-[50px] text-gray-700 text-sm">
+      <!-- 解析結果がここに表示される -->
+    </div>
+    
+    <div class="text-right mt-6">
+      <a href="{{ url_for('index') }}" class="text-blue-600 hover:underline">【ホームに戻る】</a>
+    </div>
+  </div>
+  
+  <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>

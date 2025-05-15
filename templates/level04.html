@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <!-- モバイル向けviewport設定 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>工務04（管理職）評価表</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dist/output.css') }}">
+  <!--<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">-->
+</head>
+<body class="bg-gray-100 p-2 font-sans">
+  <div class="okr-container max-w-4xl mx-auto p-4 bg-white shadow-md rounded-md">
+    <div class="flex justify-between items-center mb-4">
+        <a href="{{ url_for('admin_dashboard') }}" class="text-blue-600 hover:underline">【管理者ダッシュボードに戻る】</a>
+        <a href="{{ url_for('index') }}" class="text-blue-600 hover:underline">【ホームに戻る】</a>
+    </div>
+    <h2 class="text-2xl font-bold text-gray-800 mb-4 text-center border-b pb-3">工務04（管理職）評価表</h2>
+    <p class="text-gray-600 mb-6 bg-blue-50 p-3 rounded-md border border-blue-200 text-sm leading-relaxed">
+      ●各項目の評価（1～5）はスライダーで選択してください。<br>
+      ●各項目のポイントは「評価 × 重み」で算出され、下の評価集計実行ボタンを押すと表示されます。<br>
+      ●総合スコアは、すべての項目のポイントの合計です。
+    </p>
+    <!-- 評価項目の入力領域 -->
+    <div id="compContainer" class="space-y-6 mb-6"></div>
+
+    <div class="text-center mt-6 mb-6">
+        <button id="analyzeBtn" class="px-6 py-2 bg-green-600 text-white font-semibold rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">評価集計（解析）実行</button>
+    </div>
+
+    <div id="resultArea" class="mt-6 p-4 border rounded-md bg-gray-100 min-h-[50px] text-gray-700 text-sm">
+      <!-- 解析結果がここに表示される -->
+    </div>
+    <div class="flex justify-between items-center mt-6">
+        <a href="{{ url_for('admin_dashboard') }}" class="text-blue-600 hover:underline">【管理者ダッシュボードに戻る】</a>
+        <a href="{{ url_for('index') }}" class="text-blue-600 hover:underline">【ホームに戻る】</a>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>職人アプリ ダッシュボード</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dist/output.css') }}">
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> -->
+    <!-- Removed Roboto, using Fira Code from Tailwind config -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/apple-touch-icon.png') }}">
+</head>
+<body class="font-fira-code bg-iron-texture bg-cover bg-fixed bg-center text-base text-gray-800">
+    <nav class="navbar fixed top-0 left-0 right-0 z-50 w-full bg-glass-texture bg-cover shadow-md p-2 opacity-80">
+        <ul class="list-none m-0 p-0 flex justify-around">
+            <li class="m-0"><a href="#" data-text="ホーム" class="relative text-white no-underline px-5 py-2.5 block rounded transition-colors duration-300 hover:bg-white/40"><i class="fas fa-home text-lg text-white/70"></i></a></li>
+            <li class="m-0"><a href="#" data-text="スケジュール" class="relative text-white no-underline px-5 py-2.5 block rounded transition-colors duration-300 hover:bg-white/40"><i class="fas fa-calendar-alt text-lg text-white/70"></i></a></li>
+            <li class="m-0"><a href="#" data-text="お知らせ" class="relative text-white no-underline px-5 py-2.5 block rounded transition-colors duration-300 hover:bg-white/40"><i class="fas fa-bell text-lg text-white/70"></i></a></li>
+            <li class="m-0"><a href="#mypage" data-text="マイページ" class="relative text-white no-underline px-5 py-2.5 block rounded transition-colors duration-300 hover:bg-white/40"><i class="fas fa-user text-lg text-white/70"></i></a></li> <!-- ここにアンカーリンクを追加 -->
+            <li class="m-0"><a href="#" data-text="設定" class="relative text-white no-underline px-5 py-2.5 block rounded transition-colors duration-300 hover:bg-white/40"><i class="fas fa-cog text-lg text-white/70"></i></a></li>
+        </ul>
+    </nav>
+    <!-- Adjusted pt-16 (64px) based on nav height -->
+    <div class="index-container max-w-6xl mx-auto p-2 bg-white/30 rounded-lg shadow-lg pt-16 box-border w-full">
+        <!-- Removed mt-12 -->
+        <header class="bg-concrete-texture bg-cover text-gray-750/90 p-4 text-center rounded-md shadow-lg box-border w-full">
+            <!-- Added mx-auto to center the logo -->
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="クライアント会社のロゴ" class="logo-mask max-w-full h-auto max-h-40 mb-1.5 shadow-md mx-auto">
+            <!-- Replaced inline style with Tailwind class, changed margin from my-2 to my-1.5 -->
+            <h1 class="text-2xl my-1 underline font-bold">職人アプリ ダッシュボード</h1>
+            <!-- Changed margin from my-2 to my-1.5 -->
+            <p class="text-lg my-1.5">お疲れ様です、近藤さん！<br>今日も頑張りましょう！</p>
+        </header>
+
+        <div class="dashboard flex flex-wrap gap-1 mt-3 px-1.5 box-border w-full">
+            <!-- Card Base Classes: p-5 rounded shadow-lg flex-1 min-w-[250px] bg-white/20 bg-wood-texture bg-cover text-white/80 m-2.5 box-border card-blend-overlay md:w-[calc(50%-10px)] lg:w-[calc(33.333%-20px)] -->
+            <!-- Changed m-2 to m-2.5 -->
+            <section class="p-5 rounded shadow-lg flex-1 min-w-[250px] bg-white/20 bg-wood-texture bg-cover text-white/80 m-1.5 box-border card-blend-overlay md:w-[calc(50%-10px)] lg:w-[calc(33.333%-20px)]">
+                <!-- Replaced inline style with Tailwind class, changed text-xl to text-2xl -->
+                <h2 class="text-xl text-white/80 font-bold">【今日のスケジュール】</h2>
+                <p class="text-white/80">9:00 - 建設現場の会議</p>
+                <p class="text-white/80">10:00 - 材料の配送</p>
+                <p class="text-white/80">（googleカレンダー等と連動予定）</p>
+            </section>
+            <!-- Changed m-2 to m-2.5 -->
+            <section class="p-5 rounded shadow-lg flex-1 min-w-[250px] bg-white/20 bg-wood-texture bg-cover text-white/80 m-1.5 box-border card-blend-overlay md:w-[calc(50%-10px)] lg:w-[calc(33.333%-20px)]">
+                <!-- Replaced inline style with Tailwind class, changed text-xl to text-2xl -->
+                <h2 class="text-xl text-white/80 font-bold">【お知らせ】</h2>
+                <p class="text-white/80">2/10 - 社員スポーツ大会！</p>
+                <p class="text-white/80">2/15 - 勉強会をやります</p>
+                <p class="text-white/80">（googleカレンダー等と連動予定）</p>
+            </section>
+            <!-- Changed m-2 to m-2.5 -->
+            <section class="p-5 rounded shadow-lg flex-1 min-w-[250px] bg-white/20 bg-wood-texture bg-cover text-white/80 m-1.5 box-border card-blend-overlay md:w-[calc(50%-10px)] lg:w-[calc(33.333%-20px)]">
+                <!-- Replaced inline style with Tailwind class, changed text-xl to text-2xl -->
+                <h2 class="text-xl text-white/80 font-bold">【進捗状況】</h2>
+                <p class="text-white/80">佐々木邸 - 作業進行度: 80%</p>
+                <p class="text-white/80">（googleカレンダー等と連動予定）</p>
+            </section>
+            <!-- Changed m-2 to m-2.5 -->
+            <section class="p-5 rounded shadow-lg flex-1 min-w-[250px] bg-white/20 bg-wood-texture bg-cover text-white/80 m-1.5 box-border card-blend-overlay md:w-[calc(50%-10px)] lg:w-[calc(33.333%-20px)]">
+                 <!-- Replaced inline style with Tailwind class, changed text-xl to text-2xl -->
+                <h2 class="text-xl text-white/80 font-bold">【現場のヒント】</h2>
+                <!-- video-container -->
+                <div class="relative w-full pb-[56.25%] h-0 overflow-hidden">
+                    <iframe class="absolute top-0 left-0 w-full h-full border-0" src="https://www.youtube.com/embed/ZqHtJywxZyI?si=BHI1eIwjyyoFboPB" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <p class="text-white/80">（YouTubeチャンネルと連動予定）</p>
+            </section>
+            <!-- Changed m-2 to m-2.5 -->
+            <section class="p-5 rounded shadow-lg flex-1 min-w-[250px] bg-white/20 bg-wood-texture bg-cover text-white/80 m-1.5 box-border card-blend-overlay md:w-[calc(50%-10px)] lg:w-[calc(33.333%-20px)]">
+                <!-- Replaced inline style with Tailwind class, changed text-xl to text-2xl -->
+                <h2 class="text-xl text-white/80 font-bold">【サポート】</h2>
+                <p class="text-white/80">知識や技術のサポートが必要なときは、ここから探してみてください。</p>
+                <p class="text-white/80">（案）質問を、音声や文字で入力できます。検索結果には、文字、画像、動画が表示されます。</p>
+                <!-- Button Base: block px-5 py-2.5 text-sm text-gray-200 rounded cursor-pointer text-center no-underline transition-colors duration-300 shadow-md hover:no-underline -->
+                <!-- button-container -->
+                <div class="flex justify-center gap-5 my-3">
+                    <!-- button green -->
+                    <a href="{{ url_for('yogo') }}" class="block px-5 py-2.5 text-sm text-gray-200 rounded cursor-pointer text-center no-underline transition-colors duration-300 shadow-md hover:no-underline bg-green-600/60 hover:bg-green-700/80">現場用語集</a>
+                    <!-- button orange -->
+                    <a href="{{ url_for('job_task_list') }}" class="block px-5 py-2.5 text-sm text-gray-200 rounded cursor-pointer text-center no-underline transition-colors duration-300 shadow-md hover:no-underline bg-orange-500/55 hover:bg-orange-600/90">業務の流れ</a>
+                </div>
+                 <!-- button-container -->
+                <div class="flex justify-center gap-5 mb-3">
+                    <!-- button blue -->
+                    <div class="relative flex items-center justify-center gap-2.5 px-5 py-2.5 text-sm text-gray-200 rounded cursor-pointer text-center no-underline transition-colors duration-300 shadow-md bg-gray-400/40">
+                        <!-- icon -->
+                        <img src="{{ url_for('static', filename='images/shokunin.png') }}" alt="相棒アイコン" class="w-12 h-12">
+                        相棒〈AI:bou〉<br>に聞く
+                        <!-- Sub-button Base: relative flex items-center justify-center px-5 py-2.5 text-lg bg-blue-700 text-white rounded cursor-pointer transition duration-200 no-underline shadow-md hover:bg-blue-900 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0.5 active:shadow-sm -->
+                        <!-- sub-button-container -->
+                        <div class="flex justify-center gap-5 my-2">
+                            <!-- Changed padding from p-2.5 to px-5 py-2.5 -->
+                            <a href="#" id="textHelpButton" class="sub-button relative flex items-center justify-center px-5 py-2.5 text-lg bg-blue-700 text-white rounded cursor-pointer transition duration-200 no-underline shadow-md hover:bg-blue-900 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0.5 active:shadow-sm">
+                                <i class="fas fa-keyboard"></i>
+                                <span class="tooltip">文字</span>
+                            </a>
+                             <!-- Changed padding from p-2.5 to px-5 py-2.5 -->
+                            <a href="https://elevenlabs.io/app/talk-to?agent_id=9WtWTVWj8sDqFpJV923H" id="voiceHelpButton" class="sub-button relative flex items-center justify-center px-5 py-2.5 text-lg bg-blue-700 text-white rounded cursor-pointer transition duration-200 no-underline shadow-md hover:bg-blue-900 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0.5 active:shadow-sm">
+                                <i class="fas fa-microphone"></i>
+                                <span class="tooltip">音声</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Voice Help Container - styles applied via input.css -->
+                <!-- <div id="voiceHelpContainer">
+                    <elevenlabs-convai agent-id="9WtWTVWj8sDqFpJV923H"></elevenlabs-convai>
+                </div> -->
+            </section>
+            <!-- Changed m-2 to m-2.5 -->
+            <section class="p-5 rounded shadow-lg flex-1 min-w-[250px] bg-white/20 bg-wood-texture bg-cover text-white/80 m-1.5 box-border card-blend-overlay md:w-[calc(50%-10px)] lg:w-[calc(33.333%-20px)]" id="mypage">
+                 <!-- Replaced inline style with Tailwind class, changed text-xl to text-2xl -->
+                <h2 class="text-xl text-white/80 font-bold">【マイページ】</h2>
+                <p class="text-white/80">成長をサポートするページにアクセス！</p>
+                <!-- List Base: list-none p-0 flex flex-col items-center -->
+                <ul class="list-none p-1 flex flex-col items-center">
+                    <!-- List Item Base: w-full flex justify-center -->
+                    <!-- Link Base: inline-block py-[7px] px-2.5 my-0 text-sm text-white/90 font-bold text-center rounded-md shadow-md transition duration-200 w-[90%] box-border border-2 border-gray-300/60 hover:-translate-y-0.5 hover:shadow-xl active:translate-y-0.5 active:shadow-md -->
+                    <!-- Removed my-1 from li, changed rounded to rounded-md, shadow-lg to shadow-md on a -->
+                    <li class="w-full flex justify-center my-1"><a href="{{ url_for('okr') }}" class="inline-block py-[7px] px-2.5 text-sm text-white/90 font-bold text-center rounded-md shadow-md transition duration-200 w-[90%] box-border border-2 border-gray-300/60 hover:-translate-y-0.5 hover:shadow-xl active:translate-y-0.5 active:shadow-md bg-green-600/40 hover:bg-green-600/70">OKRと進捗状況（会社やチームの目標）</a></li>
+                    <li class="w-full flex justify-center my-1"><a href="{{ url_for('level01') }}" class="inline-block py-[7px] px-2.5 text-sm text-white/90 font-bold text-center rounded-md shadow-md transition duration-200 w-[90%] box-border border-2 border-gray-300/60 hover:-translate-y-0.5 hover:shadow-xl active:translate-y-0.5 active:shadow-md bg-blue-600/50 hover:bg-blue-600/70">コンピテンシー（力量アップ）</a></li>
+                    <li class="w-full flex justify-center my-1"><a href="{{ url_for('job_skill_levels') }}" class="inline-block py-[7px] px-2.5 text-sm text-white/90 font-bold text-center rounded-md shadow-md transition duration-200 w-[90%] box-border border-2 border-gray-300/60 hover:-translate-y-0.5 hover:shadow-xl active:translate-y-0.5 active:shadow-md bg-orange-500/35 hover:bg-orange-500/65">職務力量レベル表（成長の目安）</a></li>
+                    <li class="w-full flex justify-center my-1"><a href="{{ url_for('one_on_one') }}" class="inline-block py-[7px] px-2.5 text-sm text-white/90 font-bold text-center rounded-md shadow-md transition duration-200 w-[90%] box-border border-2 border-gray-300/60 hover:-translate-y-0.5 hover:shadow-xl active:translate-y-0.5 active:shadow-md bg-purple-600/45 hover:bg-purple-600/70">1 on 1 の記録（対話を増やそう）</a></li>
+                    <li class="w-full flex justify-center my-1"><a href="{{ url_for('ai_messages', employee_id=1) }}" class="inline-block py-[7px] px-2.5 text-sm text-white/90 font-bold text-center rounded-md shadow-md transition duration-200 w-[90%] box-border border-2 border-gray-300/60 hover:-translate-y-0.5 hover:shadow-xl active:translate-y-0.5 active:shadow-md bg-pink-600/35 hover:bg-pink-600/65">相棒〈AI:bou〉のサポート</a></li>
+                    <li class="w-full flex justify-center my-1"><a href="{{ url_for('admin_dashboard') }}" class="inline-block py-[7px] px-2.5 text-sm text-white/90 font-bold text-center rounded-md shadow-md transition duration-200 w-[90%] box-border border-2 border-gray-300/60 hover:-translate-y-0.5 hover:shadow-xl active:translate-y-0.5 active:shadow-md bg-yellow-800/40 hover:bg-yellow-800/80">【管理者ダッシュボード】（仮）</a></li>
+                </ul>
+            </section>
+        </div>
+    
+    </div>
+
+    <!-- AIチャットウィンドウ（初めは非表示） - Styles applied via input.css -->
+    <div id="aiChatWindow" class="chat-window">
+        <div class="chat-header">
+            <strong class="font-bold">AIヘルプ</strong>
+            <!-- Adjusted close button content -->
+            <button id="closeChatWindow" class="text-xl leading-none">&times;</button>
+        </div>
+        <div class="chat-content">
+            <!-- Messages will appear here -->
+        </div>
+        <div class="chat-input">
+            <input type="text" id="aiInput" placeholder="質問を入力" class="flex-1 p-2.5 border border-gray-300 rounded mr-2.5">
+            <button id="sendMessage" class="py-2.5 px-4">送信</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+    <script>
+        document.getElementById('textHelpButton').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default anchor behavior
+            document.getElementById('aiChatWindow').style.display = 'flex'; // Use flex to enable column layout
+        });
+
+        document.getElementById('closeChatWindow').addEventListener('click', function() {
+            document.getElementById('aiChatWindow').style.display = 'block';
+        });
+
+        document.getElementById('closeChatWindow').addEventListener('click', function() {
+            document.getElementById('aiChatWindow').style.display = 'none';
+        });
+
+        document.getElementById('sendMessage').addEventListener('click', function() {
+            const inputField = document.getElementById('aiInput');
+            const input = inputField.value.trim(); // Trim whitespace
+            if (input) {
+                const chatContent = document.querySelector('.chat-content');
+
+                // Display user message
+                const userMessageDiv = document.createElement('div');
+                userMessageDiv.classList.add('message', 'user-message'); // Use base 'message' class and 'user-message'
+                userMessageDiv.textContent = input;
+                chatContent.appendChild(userMessageDiv);
+
+                inputField.value = ''; // Clear input field
+
+                // Scroll to bottom
+                chatContent.scrollTop = chatContent.scrollHeight;
+
+                // Simulate AI response
+                setTimeout(() => {
+                    const aiMessageDiv = document.createElement('div');
+                    aiMessageDiv.classList.add('message', 'ai-message'); // Use base 'message' class and 'ai-message'
+                    // Optional: Add avatar if needed
+                    // const avatarImg = document.createElement('img');
+                    // avatarImg.src = "{{ url_for('static', filename='images/shokunin.png') }}"; // Example avatar
+                    // avatarImg.classList.add('ai-avatar');
+                    // aiMessageDiv.appendChild(avatarImg);
+                    const aiText = document.createElement('span'); // Wrap text in span if using avatar
+                    aiText.textContent = 'AIの応答: 「' + input + '」についてですね。'; // Example response
+                    aiMessageDiv.appendChild(aiText);
+
+                    chatContent.appendChild(aiMessageDiv);
+
+                    // Scroll to bottom again after AI response
+                    chatContent.scrollTop = chatContent.scrollHeight;
+                }, 1000);
+            }
+        });
+
+        // Add event listener for Enter key in chat input
+        document.getElementById('aiInput').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault(); // Prevent form submission or line break
+                document.getElementById('sendMessage').click(); // Trigger send button click
+            }
+        });
+    </script>
+    <!-- <script src="https://elevenlabs.io/convai-widget/index.js" async type="text/javascript"></script> -->
+</body>
+</html>

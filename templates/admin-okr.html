@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理者用・OKR設定</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dist/output.css') }}">
+</head>
+<body class="bg-gray-100 p-2 font-sans">
+  <div class="okr-container max-w-4xl mx-auto p-4 bg-white shadow-md rounded-md">
+    <div class="home-link-container text-right mb-4">
+      <a href="{{ url_for('admin_dashboard') }}" class="text-blue-600 hover:underline">【管理者ダッシュボードに戻る】</a>
+    </div>
+    <h1 class="text-3xl font-bold text-center mb-4">管理者用・OKR設定</h1>
+    <p class="mb-4">以下のフォームから、Objective と Key Result を編集できます。Objectiveを追加すると、付随するKey Resultが3つ追加されます。</p>
+
+    <label for="levelSelect" class="block text-gray-700 text-sm font-bold mb-2">レベルを選択:</label>
+    <select id="levelSelect" class="level-select block w-full p-2 border border-gray-300 rounded text-lg mb-4">
+      <option value="01">工務01（初級）</option>
+      <option value="02">工務02（中級）</option>
+      <option value="03">工務03（主任以上）</option>
+      <option value="04">工務04（管理職）</option>
+    </select>
+    
+    <div id="objectivesContainer"></div>
+    <button type="button" id="addObjectiveBtn" class="w-full mt-5 py-3 px-4 bg-[#1ac9ac] hover:bg-[#0a9c84] text-white text-xl font-bold rounded cursor-pointer">Objectiveを追加</button>
+    <button type="button" id="saveOkrBtn" class="w-full mt-5 py-3 px-4 bg-[#1ac9ac] hover:bg-[#0a9c84] text-white text-xl font-bold rounded cursor-pointer">設定を保存</button>
+  </div>
+  <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Competencies</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="evaluation-container">
+        <h1>Competencies</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>通し番号</th>
+                    <th>ユーザーID</th>
+                    <th>評価カテゴリ</th>
+                    <th>評価項目</th>
+                    <th>評価基準</th>
+                    <th>評価</th>
+                    <th>強化する項目</th>
+                    <th>係数</th>
+                    <th>ポイント</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for evaluation in evaluations %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ evaluation.user_id }}</td>
+                    <td>{{ evaluation.item.category }}</td>
+                    <td>{{ evaluation.item.name }}</td>
+                    <td>{{ evaluation.item.criteria }}</td>
+                    <td>{{ evaluation.rating }}</td>
+                    <td>{{ evaluation.improvement if evaluation.improvement else '' }}</td>
+                    <td>{{ evaluation.item.coefficient }}</td>
+                    <td>{{ evaluation.points if evaluation.points is not none else '' }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="total-container">
+            <h2>合計</h2>
+            <p>係数の合計: {{ total_coefficient }}</p>
+            <p>記入したポイントの合計: {{ total_points }}</p>
+            <p>合計点: {{ total_score }}</p>
+        </div>
+        <button onclick="history.back()">前のページに戻る</button>
+    </div>
+</body>
+</html>

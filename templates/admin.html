@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理者用・コンピテンシー評価表設定</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dist/output.css') }}">
+</head>
+<body class="bg-gray-100 p-2 font-sans">
+  <div class="okr-container max-w-4xl mx-auto p-4 bg-white shadow-md rounded-md">
+    <div class="home-link-container text-right mb-4">
+      <a href="{{ url_for('admin_dashboard') }}" class="text-blue-600 hover:underline">【管理者ダッシュボードに戻る】</a>
+    </div>
+    <h1 class="text-3xl font-bold text-center mb-4">管理者用・コンピテンシー評価表設定</h1>
+    <p>レベルを選択して、評価項目および初期重み（基準は1）を編集できます。</p>
+    <label for="levelSelect" class="block text-gray-700 text-sm font-bold mb-2">レベルを選択:</label>
+    <select id="levelSelect" class="level-select block w-full p-2 border border-gray-300 rounded text-lg">
+      <option value="01">工務01（初級）</option>
+      <option value="02">工務02（中級）</option>
+      <option value="03">工務03（主任以上）</option>
+      <option value="04">工務04（管理職）</option>
+    </select>
+    <div id="adminTableContainer"></div>
+    <style>
+      #adminTableContainer {
+        overflow-x: hidden; /* 横スクロールを無効化 */
+      }
+
+      #adminTableContainer table {
+        table-layout: auto; /* 列幅を自動調整 */
+        width: 100%; /* テーブルを親要素の幅に合わせる */
+        min-width: 600px; /* テーブル全体の最小幅を設定 */
+      }
+
+      #adminTableContainer th, #adminTableContainer td {
+        word-wrap: break-word; /* 長い単語を折り返す */
+        white-space: pre-wrap; /* テキストを折り返す */
+        padding: 0.5rem; /* セル内の余白を追加 */
+        border: 1px solid #ccc; /* セルの枠線を追加 */
+      }
+
+      #adminTableContainer th:nth-child(1),
+      #adminTableContainer td:nth-child(1) {
+        width: 5%; /* 通し番号の列を狭くする */
+        min-width: 50px; /* 最小幅を設定 */
+      }
+
+      #adminTableContainer th:nth-child(4),
+      #adminTableContainer td:nth-child(4) {
+        width: 10%; /* 初期重みの列を狭くする */
+        min-width: 80px; /* 最小幅を設定 */
+        text-align: center; /* 数字を中央揃えにする */
+      }
+
+      #adminTableContainer td:nth-child(4) input[type="number"] {
+        width: 100%; /* 入力欄をセルの幅に合わせる */
+        padding: 0.25rem; /* 入力欄内の余白を調整 */
+        box-sizing: border-box; /* パディングを含めた幅を計算 */
+      }
+
+      #adminTableContainer th:nth-child(3),
+      #adminTableContainer td:nth-child(3) {
+        width: auto; /* 評価項目の列を自動調整 */
+        word-break: break-word; /* 長い単語を折り返す */
+        white-space: normal; /* テキストを折り返す */
+      }
+
+      #adminTableContainer input[type="text"] {
+        width: 100%; /* 入力欄をセルの幅に合わせる */
+        padding: 0.5rem; /* 入力欄内の余白を追加 */
+        border: 1px solid #ccc; /* 枠線を追加 */
+        border-radius: 4px; /* 角を丸くする */
+        box-sizing: border-box; /* パディングを含めた幅を計算 */
+      }
+    </style>
+    <button id="saveBtn" class="w-full mt-5 py-3 px-4 bg-[#1ac9ac] hover:bg-[#0a9c84] text-white text-xl font-bold rounded cursor-pointer">設定を保存</button>
+  </div>
+  <script src="/static/scripts.js"></script>
+</body>
+</html>

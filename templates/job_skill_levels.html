@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>職務力量レベル表</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dist/output.css') }}">
+    <!--<link rel="stylesheet" href="/static/styles.css">-->
+</head>
+<body class="bg-gray-100 p-2 font-sans">
+    <div class="okr-container max-w-4xl mx-auto p-4 bg-white shadow-md rounded-md">
+        <div class="flex justify-between items-center mb-4">
+            <a href="{{ url_for('admin_dashboard') }}" class="text-blue-600 hover:underline">【管理者ダッシュボードに戻る】</a>
+            <a href="{{ url_for('index') }}" class="text-blue-600 hover:underline">【ホームに戻る】</a>
+        </div>
+        <h1 class="text-3xl font-bold text-gray-800 mb-2 text-center">職務力量レベル表</h1>
+        <p class="text-center text-gray-600 mb-6">〈 コンピテンシー評価表と連動 〉</p>
+        <table class="w-full border-collapse border border-gray-300 text-sm">
+            <thead>
+              <tr class="bg-gray-100">
+                  <th class="border border-gray-300 p-2 text-left font-semibold text-gray-700">業務</th>
+                  <th class="border border-gray-300 p-2 text-left font-semibold text-gray-700">業務単位</th>
+                  <th class="border border-gray-300 p-2 text-center font-semibold text-gray-700">難易度</th>
+                  <th class="border border-gray-300 p-2 text-center font-semibold text-gray-700">初級</th>
+                  <th class="border border-gray-300 p-2 text-center font-semibold text-gray-700">中級</th>
+                  <th class="border border-gray-300 p-2 text-center font-semibold text-gray-700">主任以上</th>
+                  <th class="border border-gray-300 p-2 text-center font-semibold text-gray-700">管理職</th>
+                  <th class="border border-gray-300 p-2 text-left font-semibold text-gray-700">必要なスキル</th>
+                  <th class="border border-gray-300 p-2 text-left font-semibold text-gray-700">習得する方法</th>
+                  <th class="border border-gray-300 p-2 text-left font-semibold text-gray-700">評価の方法</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="hover:bg-gray-50">
+                <td class="border border-gray-300 p-2">足場</td>
+                <td class="border border-gray-300 p-2">手元</td>
+                <td class="border border-gray-300 p-2 text-center">1</td>
+                <td class="border border-gray-300 p-2 text-center">●</td>
+                <td class="border border-gray-300 p-2 text-center"></td>
+                <td class="border border-gray-300 p-2 text-center"></td>
+                <td class="border border-gray-300 p-2 text-center"></td>
+                <td class="border border-gray-300 p-2">詳細別途</td>
+                <td class="border border-gray-300 p-2">詳細別途</td>
+                <td class="border border-gray-300 p-2">詳細別途</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+                <td class="border border-gray-300 p-2">足場</td>
+                <td class="border border-gray-300 p-2">組立</td>
+                <td class="border border-gray-300 p-2 text-center">2</td>
+                <td class="border border-gray-300 p-2 text-center">●</td>
+                <td class="border border-gray-300 p-2 text-center">●</td>
+                <td class="border border-gray-300 p-2 text-center"></td>
+                <td class="border border-gray-300 p-2 text-center"></td>
+                <td class="border border-gray-300 p-2">詳細別途</td>
+                <td class="border border-gray-300 p-2">詳細別途</td>
+                <td class="border border-gray-300 p-2">詳細別途</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+                <td class="border border-gray-300 p-2">足場</td>
+                <td class="border border-gray-300 p-2">解体</td>
+                <td class="border border-gray-300 p-2 text-center">2</td>
+                <td class="border border-gray-300 p-2 text-center">●</td>
+                <td class="border border-gray-300 p-2 text-center">●</td>
+                <td class="border border-gray-300 p-2 text-center"></td>
+                <td class="border border-gray-300 p-2 text-center"></td>
+                <td class="border border-gray-300 p-2">詳細別途</td>
+                <td class="border border-gray-300 p-2">詳細別途</td>
+                <td class="border border-gray-300 p-2">詳細別途</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+                <td class="border border-gray-300 p-2">足場</td>
+                <td class="border border-gray-300 p-2">共通仮設</td>
+                <td class="border border-gray-300 p-2 text-center">2</td>
+                <td class="border border-gray-300 p-2 text-center">●</td>
+                <td class="border border-gray-300 p-2 text-center">●</td>
+                <td class="border border-gray-300 p-2 text-center"></td>
+                <td class="border border-gray-300 p-2 text-center"></td>
+                <td class="border border-gray-300 p-2">詳細別途</td>
+                <td class="border border-gray-300 p-2">詳細別途</td>
+                <td class="border border-gray-300 p-2">詳細別途</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+                <td class="border border-gray-300 p-2">足場</td>
+                <td class="border border-gray-300 p-2">組立（難易度高）</td>
+                <td class="border border-gray-300 p-2 text-center">3</td>
+                <td class="border border-gray-300 p-2 text-center"></td>
+                <td class="border border-gray-300 p-2 text-center">●</td>
+                <td class="border border-gray-300 p-2 text-center">●</td>
+                <td class="border border-gray-300 p-2 text-center"></td>
+                <td class="border border-gray-300 p-2">詳細別途</td>
+                <td class="border border-gray-300 p-2">詳細別途</td>
+                <td class="border border-gray-300 p-2">詳細別途</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+                <td class="border border-gray-300 p-2">足場</td>
+                <td class="border border-gray-300 p-2">解体（難易度高）</td>
+                <td class="border border-gray-300 p-2 text-center">3</td>
+                <td class="border border-gray-300 p-2 text-center"></td>
+                <td class="border border-gray-300 p-2 text-center">●</td>
+                <td class="border border-gray-300 p-2 text-center">●</td>
+                <td class="border border-gray-300 p-2 text-center"></td>
+                <td class="border border-gray-300 p-2">詳細別途</td>
+                <td class="border border-gray-300 p-2">詳細別途</td>
+                <td class="border border-gray-300 p-2">詳細別途</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+                <td class="border border-gray-300 p-2">足場</td>
+                <td class="border border-gray-300 p-2">共通仮設（難易度高）</td>
+                <td class="border border-gray-300 p-2 text-center">3</td>
+                <td class="border border-gray-300 p-2 text-center"></td>
+                <td class="border border-gray-300 p-2 text-center">●</td>
+                <td class="border border-gray-300 p-2 text-center">●</td>
+                <td class="border border-gray-300 p-2 text-center"></td>
+                <td class="border border-gray-300 p-2">詳細別途</td>
+                <td class="border border-gray-300 p-2">詳細別途</td>
+                <td class="border border-gray-300 p-2">詳細別途</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+                <td class="border border-gray-300 p-2">足場</td>
+                <td class="border border-gray-300 p-2">計画・拾い</td>
+                <td class="border border-gray-300 p-2 text-center">4</td>
+                <td class="border border-gray-300 p-2 text-center"></td>
+                <td class="border border-gray-300 p-2 text-center"></td>
+                <td class="border border-gray-300 p-2 text-center">●</td>
+                <td class="border border-gray-300 p-2 text-center">●</td>
+                <td class="border border-gray-300 p-2">詳細別途</td>
+                <td class="border border-gray-300 p-2">詳細別途</td>
+                <td class="border border-gray-300 p-2">詳細別途</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+                <td class="border border-gray-300 p-2">足場</td>
+                <td class="border border-gray-300 p-2">計画・拾い（難易度高）</td>
+                <td class="border border-gray-300 p-2 text-center">5</td>
+                <td class="border border-gray-300 p-2 text-center"></td>
+                <td class="border border-gray-300 p-2 text-center"></td>
+                <td class="border border-gray-300 p-2 text-center"></td>
+                <td class="border border-gray-300 p-2 text-center">●</td>
+                <td class="border border-gray-300 p-2">詳細別途</td>
+                <td class="border border-gray-300 p-2">詳細別途</td>
+                <td class="border border-gray-300 p-2">詳細別途</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="flex justify-between items-center mt-6">
+            <a href="{{ url_for('admin_dashboard') }}" class="text-blue-600 hover:underline">【管理者ダッシュボードに戻る】</a>
+            <a href="{{ url_for('index') }}" class="text-blue-600 hover:underline">【ホームに戻る】</a>
+        </div>
+    </div>
+</body>
+</html>

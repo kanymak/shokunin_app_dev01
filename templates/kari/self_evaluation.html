@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自己評価の入力</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="evaluation-container">
+        <h1>自己評価の入力</h1>
+        <form method="POST">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ユーザーID</th>
+                        <th>評価カテゴリ</th>
+                        <th>評価項目</th>
+                        <th>評価基準</th>
+                        <th>評価</th>
+                        <th>強化する項目</th>
+                        <th>係数</th>
+                        <th>ポイント</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for evaluation in evaluations %}
+                    <tr>
+                        <td>{{ evaluation.user_id }}</td>
+                        <td>{{ evaluation.item.category }}</td>
+                        <td>{{ evaluation.item.name }}</td>
+                        <td>{{ evaluation.item.criteria }}</td>
+                        <td>
+                            <select name="rating_{{ evaluation.id }}">
+                                <option value="1" {% if evaluation.rating == 1 %}selected{% endif %}>1</option>
+                                <option value="2" {% if evaluation.rating == 2 %}selected{% endif %}>2</option>
+                                <option value="3" {% if evaluation.rating == 3 %}selected{% endif %}>3</option>
+                                <option value="4" {% if evaluation.rating == 4 %}selected{% endif %}>4</option>
+                                <option value="5" {% if evaluation.rating == 5 %}selected{% endif %}>5</option>
+                            </select>
+                        </td>
+                        <td>{{ evaluation.improvement if evaluation.improvement else '' }}</td>
+                        <td>{{ evaluation.item.coefficient }}</td>
+                        <td>{{ evaluation.points }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <button type="submit">送信</button>
+        </form>
+        <div class="total-container">
+            <h2>合計</h2>
+            <p>係数の合計: {{ total_coefficient }}</p>
+            <p>記入したポイントの合計: {{ total_points }}</p>
+            <p>合計点: {{ total_score }}</p>
+        </div>
+    </div>
+</body>
+</html>

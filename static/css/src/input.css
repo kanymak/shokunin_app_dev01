@@ -1,0 +1,209 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles from styles.css that are hard to replicate with Tailwind */
+
+/* Header Logo Mask */
+.logo-mask {
+    mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 95%, rgba(0, 0, 0, 0) 100%);
+    -webkit-mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 95%, rgba(0, 0, 0, 0) 100%);
+}
+
+/* Navbar Tooltips */
+.navbar a[data-text]::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -15px; /* Position below the icon */
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 10px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+    z-index: 10; /* Ensure tooltip is above other elements */
+}
+
+.navbar a[data-text]:hover::after {
+    opacity: 1;
+}
+
+/* Card Background Blend Mode */
+.card-blend-overlay {
+    background-blend-mode: overlay;
+}
+
+/* Sub-button Tooltips */
+.sub-button .tooltip {
+    visibility: hidden;
+    width: 40px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 2px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Position above the button */
+    left: 50%;
+    margin-left: -20px; /* Center the tooltip */
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none; /* Allow clicks to pass through */
+}
+
+.sub-button:hover .tooltip {
+    visibility: visible;
+    opacity: 0.7;
+}
+
+/* ElevenLabs Widget Container */
+#voiceHelpContainer {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 40%; /* Maintain aspect ratio */
+    overflow: hidden;
+}
+
+#voiceHelpContainer elevenlabs-convai {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Chat Window Styles (Consider scoping if needed) */
+.chat-window {
+    display: none; /* Initially hidden, controlled by JS */
+    flex-direction: column;
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    width: 300px;
+    max-height: 400px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1001; /* Ensure it's above other content */
+}
+
+.chat-header {
+    background-color: rgba(44, 62, 80, 0.9); /* Example color */
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.chat-header button#closeChatWindow {
+    width: 20px;
+    height: 20px;
+    background-color: #dc3545; /* Example close button color */
+    border: none;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0; /* Remove padding */
+    line-height: 1; /* Adjust line height */
+    border-radius: 3px;
+}
+
+.chat-content {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    background-color: #f9fbfd; /* Light background for messages */
+}
+
+.chat-content p { /* Basic styling for potential paragraphs */
+    margin: 0 0 10px;
+}
+
+.chat-input {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #ccc; /* Separator */
+    background-color: #fff;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.chat-input button {
+    padding: 10px 15px; /* Adjusted padding */
+    background-color: rgba(44, 62, 80, 0.9); /* Example color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px; /* Adjusted font size */
+}
+
+.chat-input button:hover {
+    background-color: rgba(52, 73, 94, 0.9); /* Example hover color */
+}
+
+/* Message Styles within Chat */
+.message {
+  margin-bottom: 12px;
+  line-height: 1.4;
+  padding: 8px 12px;
+  border-radius: 6px;
+  max-width: 80%; /* Adjusted max-width */
+  word-wrap: break-word;
+}
+
+.ai-message {
+  background-color: #eaf4ff;
+  color: #2a6ebb;
+  text-align: left;
+  margin-right: auto; /* Align left */
+  position: relative; /* Needed for avatar positioning */
+  /* padding-left: 60px; /* Space for avatar if using */
+}
+
+.user-message {
+  background-color: #d4edda;
+  color: #155724;
+  text-align: left; /* Keep text left-aligned */
+  margin-left: auto; /* Align bubble right */
+}
+
+/* AI Avatar (if you add an img tag) */
+.ai-avatar {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #2a6ebb;
+}
+
+/* input.css */
+.my-special-text {
+    font-family: "My Custom Font", sans-serif;
+}
+  
+/* Add other specific styles from styles.css if needed */

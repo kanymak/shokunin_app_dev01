@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理者ダッシュボード（仮）</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dist/output.css') }}">
+</head>
+<body class="bg-gray-100 p-2 font-sans">
+  <div class="okr-container max-w-4xl mx-auto p-4 bg-white shadow-md rounded-md">
+    <div class="home-link-container text-right mb-4">
+      <a href="{{ url_for('index') }}" class="text-blue-600 hover:underline">【ホームに戻る】</a>
+    </div>
+    <h1 class="text-3xl font-bold text-center mb-4">管理者ダッシュボード（仮）</h1>
+    <h2 class="text-xl text-center text-gray-600 mb-6">～職人の成長を促す力量評価システムを目指して～</h2>
+    <h2 class="text-2xl font-semibold mb-4">【 OKR 】</h2>
+    <ul class="list-disc list-inside mb-6">
+      <li><a href="{{ url_for('okr') }}" class="text-blue-600 hover:underline">OKRと進捗状況</a></li>
+      <li><a href="{{ url_for('admin_okr') }}" class="text-blue-600 hover:underline">◆管理者用・OKR設定</a></li>
+    </ul>
+    <h3 class="text-lg font-semibold mb-2">［OKRについてのメモ］</h3>
+    <p class="mb-2">・会社全体の目標、チームの目標を立てる（やや大きな目標）。</p>
+    <p class="mb-2">・その目標を実現するための、計測可能な数値目標を1～3ほど立てる。</p>
+    <p class="mb-6">・毎月など、短いスパンで、チーム、会社で状況を確認しつつ、70％ほどの達成を目指す。そうすることで、さらに大きな飛躍を遂げることもある。</p>
+    <h2 class="text-2xl font-semibold mb-4">【 コンピテンシー評価表 】</h2>
+    <ul class="list-disc list-inside mb-6">
+      <li><a href="{{ url_for('level01') }}" class="text-blue-600 hover:underline">工務01（初級）評価表</a></li>
+      <li><a href="{{ url_for('level02') }}" class="text-blue-600 hover:underline">工務02（中級）評価表</a></li>
+      <li><a href="{{ url_for('level03') }}" class="text-blue-600 hover:underline">工務03（主任以上）評価表</a></li>
+      <li><a href="{{ url_for('level04') }}" class="text-blue-600 hover:underline">工務04（管理職）評価表</a></li>
+      <li><a href="{{ url_for('admin_competency') }}" class="text-blue-600 hover:underline">◆管理者用・コンピテンシー評価表設定</a></li>
+    </ul>
+    <h3 class="text-lg font-semibold mb-2">［コンピテンシーについてのメモ］</h3>
+    <p class="mb-2">・評価項目の内容を理解し、行動の指針とする。</p>
+    <p class="mb-6">・基本的な部分に加えて、各社の個性、社風として大事にすることなども考慮して調整。</p>
+    <h2 class="text-2xl font-semibold mb-4">【 職務力量レベル表 】</h2>
+    <ul class="list-disc list-inside mb-6">
+      <li><a href="{{ url_for('job_skill_levels') }}" class="text-blue-600 hover:underline">職務力量レベル表</a></li>
+    </ul>
+    <h3 class="text-lg font-semibold mb-2">［職務力量レベル表（技術力）についてのメモ］</h3>
+    <p class="mb-2">・技術力については、表を目安として、その段階で必要なスキルをできるだけ明確化。</p>
+    <p class="mb-6">・どうやって身に着ければよいかの道筋・やり方を具体的に示す。</p>
+    <h2 class="text-2xl font-semibold mb-4">【 業務の流れ 】</h2>
+    <ul class="list-disc list-inside mb-6">
+      <li><a href="{{ url_for('job_task_list') }}" class="text-blue-600 hover:underline">足場業務の流れ一覧表</a></li>
+    </ul>
+    <h2 class="text-2xl font-semibold mb-4">【 用語集 】</h2>
+    <ul class="list-disc list-inside mb-6">
+    <p class="mb-2">・時には、外部の視点として、コーチングのプロに加わってもらうことも。</p>
+    <p class="mb-6">・（案）緊張しないバーチャルな相談相手として、今後はＡＩも考えられる（自社のもとめる姿のアドバイザーとして設定する）。</p>
+    <h2 class="text-2xl font-semibold mb-4">【 備考 】</h2>
+    <h3 class="text-lg font-semibold mb-2">［1on1の記録（対話を増やそう）についてのメモ］</h3>
+    <p class="mb-2">・新人や中途採用の方で、次のような方が増えている。「質問ができない」→「迷惑をかけたくない」「何を聞いていいのかわからない」「どうせできない」「（これまでやってきた）プライドが」等。</p>
+    <p class="mb-2">　→報連相・想（相談+想像力）が必要。お互いの思いを引き出せる場として、1on1（対話）を定期的に必ず行う。</p>
+    <p class="mb-2">・時には、外部の視点として、コーチングのプロに加わってもらうことも。</p>
+    <p class="mb-6">・（案）緊張しないバーチャルな相談相手として、今後はＡＩも考えられる（自社のもとめる姿のアドバイザーとして設定する）。</p>
+
+    <h2 class="text-2xl font-semibold mb-4">【 従業員一覧 】</h2>
+    <ul class="list-disc list-inside mb-6">
+      <li><a href="{{ url_for('list_employees') }}" class="text-blue-600 hover:underline">従業員一覧表</a></li>
+    </ul>
+  
+    <h2 class="text-2xl font-semibold mb-4">【 従業員登録 】</h2>
+    <form action="/employees/add" method="post" class="mb-6">
+        <div class="mb-2">
+            名前: <input type="text" name="name" class="border rounded p-1">
+        </div>
+        <div class="mb-2">
+            社員番号: <input type="text" name="employee_number" class="border rounded p-1">
+        </div>
+        <div class="mb-2">
+            部署: <input type="text" name="department" class="border rounded p-1">
+        </div>
+        <div class="mb-2">
+            役職: <input type="text" name="position" class="border rounded p-1">
+        </div>
+        <div class="mb-2">
+            入社年月日: <input type="date" name="hire_date" class="border rounded p-1">
+        </div>
+        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            登録
+        </button>
+    </form>
+    </ul>
+  </div>
+</body>
+</html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <!-- モバイル表示向けの設定 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>足場業務の流れ一覧表</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dist/output.css', v=now) }}">
+</head>
+<body class="bg-gray-100 p-2 font-sans">
+  <div class="okr-container max-w-4xl mx-auto p-4 bg-white shadow-md rounded-md">
+    <div class="flex justify-between items-center mb-6">
+      <a href="{{ url_for('index') }}" class="text-blue-600 hover:underline font-medium">【ホームに戻る】</a>
+    </div>
+    <div class="nav flex justify-center space-x-6 mb-6 button-container">
+      <a href="#categoryA" class="nav-button nav-button-a bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">枠組足場</a>
+      <a href="#categoryB" class="nav-button nav-button-b bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600">ビケ足場</a>
+      <a href="#categoryC" class="nav-button nav-button-c bg-yellow-500 text-white py-2 px-4 rounded hover:bg-yellow-600">単管足場</a>
+    </div>
+    <h1 class="text-2xl font-bold text-center mb-6">足場業務の流れ一覧表</h1>
+
+    <!-- カテゴリ A: 枠組足場（ビデ足場） -->
+    <div class="category category-a mb-8" id="categoryA">
+      <h2 class="text-xl font-semibold mb-4">Ａ．枠組足場（ビデ足場）</h2>
+      <p class="mb-4">・主にマンションや敷地の広い現場で使用される足場。<br>
+         ・枠の大きさは、600・900・1200がある。布板は大アンジと小アンジがある。</p>
+      
+      <!-- 作業 1 -->
+      <div class="task mb-6" id="A-task1">
+        <h3 class="text-lg font-semibold mb-2">１．敷板・ジャッキの設置</h3>
+        <div class="detail mb-2">
+          <p>・足場を建てる場所を、ジョレンなどを用いて整地し、敷板を置く。</p>
+          <p>・基本的に、敷板１枚に対しジャッキを２つ使用する。</p>
+          <p>　⇒敷板とジャッキをセットにする</p>
+        </div>
+        <div class="video-link">
+          <a href="https://example.com/video/A1" target="_blank" rel="noopener noreferrer" class="btn-small text-white bg-blue-500 hover:bg-blue-600 rounded px-2 py-1">動画で見る</a>
+        </div>
+      </div>
+
+      <!-- 以下、Aカテゴリの他の作業 -->
+      <div class="task mb-6" id="A-task2">
+        <h3 class="text-lg font-semibold mb-2">２．建て枠（ビデ枠）の設置</h3>
+        <div class="detail mb-2">
+          <p>・コーナー面から組立、ジャッキの上に建て枠を設置する。</p>
+          <p>・２層目以降は、建て枠の上に積み上げる形になる。</p>
+        </div>
+        <div class="video-link">
+          <a href="https://example.com/video/A2" target="_blank" rel="noopener noreferrer" class="btn-small text-white bg-blue-500 hover:bg-blue-600 rounded px-2 py-1">動画で見る</a>
+        </div>
+      </div>
+      
+      <!-- 作業３～９も同様の形式で記述 -->
+      <div class="task mb-6" id="A-task3">
+        <h3 class="text-lg font-semibold mb-2">３．筋交い（ブレス）の取り付け</h3>
+        <div class="detail mb-2">
+          <p>・建て枠の内側のピンにブレスを掛けて固定する。</p>
+          <p>・オートレベルなどを用いてジャッキの高さを調節する。</p>
+        </div>
+        <div class="video-link">
+          <a href="https://example.com/video/A3" target="_blank" rel="noopener noreferrer" class="btn-small text-white bg-blue-500 hover:bg-blue-600 rounded px-2 py-1">動画で見る</a>
+        </div>
+      </div>
+
+      <!-- 作業４ -->
+      <div class="task mb-6" id="A-task4">
+        <h3 class="text-lg font-semibold mb-2">４．布板（アンジ）の取り付け</h3>
+        <div class="detail mb-2">
+          <p>・布板を建て枠の上に設置する。</p>
+        </div>
+        <div class="video-link">
+          <a href="https://example.com/video/A4" target="_blank" rel="noopener noreferrer" class="btn-small text-white bg-blue-500 hover:bg-blue-600 rounded px-2 py-1">動画で見る</a>
+        </div>
+      </div>
+
+      <!-- 作業５ -->
+      <div class="task mb-6" id="A-task5">
+        <h3 class="text-lg font-semibold mb-2">５．根がらみの取り付け</h3>
+        <div class="detail mb-2">
+          <p>・建て枠の下方（３００以内）の位置に単管を直交クランプで固定する。</p>
+          <p>・根がらみは建て枠のずれ、沈みを防ぐために行なう。</p>
+        </div>
+        <div class="video-link">
+          <a href="https://example.com/video/A5" target="_blank" rel="noopener noreferrer" class="btn-small text-white bg-blue-500 hover:bg-blue-600 rounded px-2 py-1">動画で見る</a>
+        </div>
+      </div>
+
+      <!-- 作業６ -->
+      <div class="task mb-6" id="A-task6">
+        <h3 class="text-lg font-semibold mb-2">６．半端箇所の施工</h3>
+        <div class="detail mb-2">
+          <p>・布板のフックがきちんとはまっていない箇所は番線で縛り、ブレスがかからない箇所は、単管で手摺りを付ける。</p>
+        </div>
+        <div class="video-link">
+          <a href="https://example.com/video/A6" target="_blank" rel="noopener noreferrer" class="btn-small text-white bg-blue-500 hover:bg-blue-600 rounded px-2 py-1">動画で見る</a>
+        </div>
+      </div>
+
+      <!-- 作業７ -->
+      <div class="task mb-6" id="A-task7">
+        <h3 class="text-lg font-semibold mb-2">７．階段の取り付け</h3>
+        <div class="detail mb-2">
+          <p>・建て枠に階段を取り付ける。</p>
+          <p>・階段は連続２段まで設置可能。</p>
+          <p>・階段手摺りは専用手摺りを使用。</p>
+        </div>
+        <div class="video-link">
+          <a href="https://example.com/video/A7" target="_blank" rel="noopener noreferrer" class="btn-small text-white bg-blue-500 hover:bg-blue-600 rounded px-2 py-1">動画で見る</a>
+        </div>
+      </div>
+
+      <!-- 作業８ -->
+      <div class="task mb-6" id="A-task8">
+        <h3 class="text-lg font-semibold mb-2">８．壁つなぎの取り付け</h3>
+        <div class="detail mb-2">
+          <p>・躯体と足場を壁つなぎで固定する。</p>
+          <p>・決められた箇所に、決められた離れ（２５０）で設置する。</p>
+        </div>
+        <div class="video-link">
+          <a href="https://example.com/video/A8" target="_blank" rel="noopener noreferrer" class="btn-small text-white bg-blue-500 hover:bg-blue-600 rounded px-2 py-1">動画で見る</a>
+        </div>
+      </div>
+
+      <!-- 作業９ -->
+      <div class="task mb-6" id="A-task9">
+        <h3 class="text-lg font-semibold mb-2">９．火打ちの取り付け（最上段のみ）</h3>
+        <div class="detail mb-2">
+          <p>・足場最上段の角を火打ちでつなぎトラスを形成し、固定する。</p>
+          <p>・火打ち用単管は長いため、周囲の安全の確認と落下に注意する。</p>
+          <p>※２層目からは、作業２～８を繰り返す。</p>
+        </div>
+        <div class="video-link">
+          <a href="https://example.com/video/A9" target="_blank" rel="noopener noreferrer" class="btn-small text-white bg-blue-500 hover:bg-blue-600 rounded px-2 py-1">動画で見る</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- カテゴリ B: ビケ足場 -->
+    <div class="category category-b mb-8" id="categoryB">
+      <h2 class="text-xl font-semibold mb-4">Ｂ．ビケ足場</h2>
+       <p class="mb-4">・主に、住宅・鉄骨などの敷地の狭い現場で使用される。</p>
+       <p class="mb-4">・ビケ足場とは、低中層建築物で使用され、クサビ部分を手ハンマーを用いて打ちこむ、組立式足場のこと。</p> 
+      <div class="back-to-nav mb-4">
+        <a href="#top" class="nav-highlight text-blue-700 hover:text-blue-900 underline">ナビゲーションに戻る</a>
+      </div>
+      
+      <!-- 作業 1 -->
+      <div class="task mb-6" id="B-task1">
+        <h3 class="text-lg font-semibold mb-2">１．敷板・ジャッキの設置</h3>
+        <div class="detail mb-2">
+          <p>・足場を建てる場所を整地し、ジャッキが動かないように敷板に固定する。</p>
+        </div>
+        <div class="video-link">
+          <a href="https://example.com/video/B1" target="_blank" rel="noopener noreferrer" class="btn-small text-white bg-blue-500 hover:bg-blue-600 rounded px-2 py-1">動画で見る</a>
+        </div>
+      </div>
+
+      <!-- 作業 2 -->
+      <div class="task mb-6" id="B-task2">
+        <h3 class="text-lg font-semibold mb-2">２．建て地（支柱）の設置</h3>
+        <div class="detail mb-2">
+          <p>・コーナー面から組み立てる。</p>
+          <p>・ジャッキの上に支柱を設置する。</p>
+          <p>・２層目以降は、支柱の上に支柱を積み重ねる形になる。</p>
+        </div>
+        <div class="video-link">
+          <a href="https://example.com/video/B2" target="_blank" rel="noopener noreferrer" class="btn-small text-white bg-blue-500 hover:bg-blue-600 rounded px-2 py-1">動画で見る</a>
+        </div>
+      </div>
+
+      <!-- 作業 3 -->
+      <div class="task mb-6" id="B-task3">
+        <h3 class="text-lg font-semibold mb-2">３．横地（手摺り）の設置</h3>
+        <div class="detail mb-2">
+          <p>・建て地の一番下のコマに手摺り（横地材）を挿しこみ固定する。</p>
+          <p>・水平器やレベルを用いて高さを調節する。</p>
+        </div>
+        <div class="video-link">
+          <a href="https://example.com/video/B3" target="_blank" rel="noopener noreferrer" class="btn-small text-white bg-blue-500 hover:bg-blue-600 rounded px-2 py-1">動画で見る</a>
+        </div>
+      </div>
+
+      <!-- 作業 4 -->
+      <div class="task mb-6" id="B-task4">
+        <h3 class="text-lg font-semibold mb-2">４．ブラケットの設置</h3>
+        <div class="detail mb-2">
+          <p>・コーナーが決まったら、踏み板がくるコマにブラケットを挿しこむ。</p>
+        </div>
+        <div class="video-link">
+          <a href="https://example.com/video/B4" target="_blank" rel="noopener noreferrer" class="btn-small text-white bg-blue-500 hover:bg-blue-600 rounded px-2 py-1">動画で見る</a>
+        </div>
+      </div>
+
+      <!-- 作業 5 -->
+      <div class="task mb-6" id="B-task5">
+        <h3 class="text-lg font-semibold mb-2">５．内控えの設置</h3>
+        <div class="detail mb-2">
+          <p>・足場が倒れないように、控えを取って支える。</p>
+        </div>
+        <div class="video-link">
+          <a href="https://example.com/video/B5" target="_blank" rel="noopener noreferrer" class="btn-small text-white bg-blue-500 hover:bg-blue-600 rounded px-2 py-1">動画で見る</a>
+        </div>
+      </div>
+
+      <!-- 作業 6 -->
+      <div class="task mb-6" id="B-task6">
+        <h3 class="text-lg font-semibold mb-2">６．踏み板の設置</h3>
+        <div class="detail mb-2">
+          <p>・ブラケットに踏み板を挿しこむ。</p>
+        </div>
+        <div class="video-link">
+          <a href="https://example.com/video/B6" target="_blank" rel="noopener noreferrer" class="btn-small text-white bg-blue-500 hover:bg-blue-600 rounded px-2 py-1">動画で見る</a>
+        </div>
+      </div>
+
+      <!-- 作業 7 -->
+      <div class="task mb-6" id="B-task7">
+        <h3 class="text-lg font-semibold mb-2">７．根がらみ・階段の設置</h3>
+        <div class="detail mb-2">
+          <p>・支柱の下方を横地材で固定する。</p>
+          <p>・昇降階段の位置決定と取り付けを行なう。</p>
+        </div>
+        <div class="video-link">
+          <a href="https://example.com/video/B7" target="_blank" rel="noopener noreferrer" class="btn-small text-white bg-blue-500 hover:bg-blue-600 rounded px-2 py-1">動画で見る</a>
+        </div>
+      </div>
+
+      <!-- 作業 8 -->
+      <div class="task mb-6" id="B-task8">
+        <h3 class="text-lg font-semibold mb-2">８．火打ちの取り付け（最上段のみ）</h3>
+        <div class="detail mb-2">
+          <p>・足場最上段の角を火打ち材でつなぎ、トラスを形成し、固定する。</p>
+          <p>・筋交い材を支柱に対し斜め４５度で取り付ける。<br>
+             ※２層目からは、作業２～７を繰り返す。</p>
+        </div>
+        <div class="video-link">
+          <a href="https://example.com/video/B8" target="_blank" rel="noopener noreferrer" class="btn-small text-white bg-blue-500 hover:bg-blue-600 rounded px-2 py-1">動画で見る</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- カテゴリ C: 単管足場 -->
+    <div class="category category-c mb-8" id="categoryC">
+      <h2 class="text-xl font-semibold mb-4">Ｃ．単管足場</h2>
+      <p class="mb-4">・主に、マンション・住宅・鉄骨・敷地の狭い現場で使用される。</p>
+      <p class="mb-4">・基本的な流れは、ビデ・ビケと同じ。</p> 
+      <div class="back-to-nav mb-4">
+        <a href="#top" class="nav-highlight text-blue-700 hover:text-blue-900 underline">ナビゲーションに戻る</a>
+      </div>
+      
+      <!-- 作業 1 -->
+      <div class="task mb-6" id="C-task1">
+        <h3 class="text-lg font-semibold mb-2">１．敷板・ジャッキの設置</h3>
+        <div class="detail mb-2">
+          <p>・足場を建てる場所を整地し、ジャッキが動かないように敷板を固定する。</p>
+        </div>
+        <div class="video-link">
+          <a href="https://example.com/video/C1" target="_blank" rel="noopener noreferrer" class="btn-small text-white bg-blue-500 hover:bg-blue-600 rounded px-2 py-1">動画で見る</a>
+        </div>
+      </div>
+
+      <!-- 作業 2 -->
+      <div class="task mb-6" id="C-task2">
+        <h3 class="text-lg font-semibold mb-2">２．建て地（支柱）の設置</h3>
+        <div class="detail mb-2">
+          <p>・コーナー面から組み立て、ジャッキの上に建て地を設置する。</p>
+          <p>・２層目以降は、ジャッキ用の接合材を用いて上に積み上げる。</p>
+        </div>
+        <div class="video-link">
+          <a href="https://example.com/video/C2" target="_blank" rel="noopener noreferrer" class="btn-small text-white bg-blue-500 hover:bg-blue-600 rounded px-2 py-1">動画で見る</a>
+        </div>
+      </div>
+
+      <!-- 作業 3 -->
+      <div class="task mb-6" id="C-task3">
+        <h3 class="text-lg font-semibold mb-2">３．横地（手摺り）の設置</h3>
+        <div class="detail mb-2">
+          <p>・手摺りは、７５０以上でかつ高さ９００くらいの箇所に取り付ける。</p>
+          <p>・水平器を用いて高さを調節する。</p>
+          <p>・建て地と手摺りが直交クランプにより確実に固定されているか確認する。</p>
+          <p>・建て地が倒れないように、しっかりと支える。</p>
+        </div>
+        <div class="video-link">
+          <a href="https://example.com/video/C3" target="_blank" rel="noopener noreferrer" class="btn-small text-white bg-blue-500 hover:bg-blue-600 rounded px-2 py-1">動画で見る</a>
+        </div>
+      </div>
+
+      <!-- 作業 4 -->
+      <div class="task mb-6" id="C-task4">
+        <h3 class="text-lg font-semibold mb-2">４．ブラケットの設置</h3>
+        <div class="detail mb-2">
+          <p>・１８００くらいの高さに設置する。</p>
+          <p>・道板が重なるところはブラケットの高さを替える。</p>
+        </div>
+        <div class="video-link">
+          <a href="https://example.com/video/C4" target="_blank" rel="noopener noreferrer" class="btn-small text-white bg-blue-500 hover:bg-blue-600 rounded px-2 py-1">動画で見る</a>
+        </div>
+      </div>
+
+      <!-- 作業 5 -->
+      <div class="task mb-6" id="C-task5">
+        <h3 class="text-lg font-semibold mb-2">５．足場板の設置</h3>
+        <div class="detail mb-2">
+          <p>・ブラケットに道板を設置する。</p>
+          <p>・４ｍの道板は３点支持にする。</p>
+          <p>・番線でしっかりと固定する。</p>
+        </div>
+        <div class="video-link">
+          <a href="https://example.com/video/C5" target="_blank" rel="noopener noreferrer" class="btn-small text-white bg-blue-500 hover:bg-blue-600 rounded px-2 py-1">動画で見る</a>
+        </div>
+      </div>
+
+      <!-- 作業 6 -->
+      <div class="task mb-6" id="C-task6">
+        <h3 class="text-lg font-semibold mb-2">６．根がらみの設置</h3>
+        <div class="detail mb-2">
+          <p>・建て地の内側下方を単管で固定する。</p>
+          <p>・高さに注意し、単管・クランプ・ジャッキの接合をしっかりと行う。</p>
+        </div>
+        <div class="video-link">
+          <a href="https://example.com/video/C6" target="_blank" rel="noopener noreferrer" class="btn-small text-white bg-blue-500 hover:bg-blue-600 rounded px-2 py-1">動画で見る</a>
+        </div>
+      </div>
+
+      <!-- 作業 7 -->
+      <div class="task mb-6" id="C-task7">
+        <h3 class="text-lg font-semibold mb-2">７．火打ちの取り付け（最上段のみ）</h3>
+        <div class="detail mb-2">
+          <p>・足場最上段の角を火打ちでつなぎ、トラスを形成し、固定する。</p>
+          <p>・火打ち用単管は長いため、周囲の安全確認と落下に注意する。</p>
+          <p>・２層目以降は、作業２～６を繰り返す。<br>
+             ・建て地と横地の接合はずらして行う。</p>
+        </div>
+        <div class="video-link">
+          <a href="https://example.com/video/C7" target="_blank" rel="noopener noreferrer" class="btn-small text-white bg-blue-500 hover:bg-blue-600 rounded px-2 py-1">動画で見る</a>
+        </div>
+      </div>
+      <div class="back-to-nav mb-4">
+        <a href="#top" class="nav-highlight text-blue-700 hover:text-blue-900 underline">ナビゲーションに戻る</a>
+      </div>  
+    </div>
+    <div class="home-link-container text-center mt-6">
+      <a href="{{ url_for('index') }}" class="text-blue-600 hover:underline font-medium">【ホームに戻る】</a>
+    </div>
+  </div>
+</body>
+</html>

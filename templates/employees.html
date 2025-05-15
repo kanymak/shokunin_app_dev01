@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>従業員一覧</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dist/output.css') }}">
+</head>
+<body class="bg-gray-100 p-2 font-sans">
+    <div class="okr-container max-w-4xl mx-auto p-4 bg-white shadow-md rounded-md">
+        <div class="home-link-container text-right mb-4">
+          <a href="{{ url_for('admin_dashboard') }}" class="text-blue-600 hover:underline">【管理者ダッシュボードに戻る】</a>
+        </div>
+        <h1 class="text-3xl font-bold text-center mb-4">従業員一覧</h1>
+        <table class="w-full border-collapse border border-gray-300 text-sm">
+            <thead>
+                <tr class="bg-gray-100">
+                    <th class="border border-gray-300 p-2 text-left font-semibold text-gray-700">名前</th>
+                    <th class="border border-gray-300 p-2 text-left font-semibold text-gray-700">社員番号</th>
+                    <th class="border border-gray-300 p-2 text-left font-semibold text-gray-700">部署</th>
+                    <th class="border border-gray-300 p-2 text-left font-semibold text-gray-700">役職</th>
+                    <th class="border border-gray-300 p-2 text-left font-semibold text-gray-700">入社年月日</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for employee in employees %}
+                <tr class="hover:bg-gray-50">
+                    <td class="border border-gray-300 p-2">
+                        <a href="{{ url_for('employee_history', employee_id=employee.employee_id) }}" class="text-blue-500 hover:underline">{{ employee.name }}</a>
+                    </td>
+                    <td class="border border-gray-300 p-2">{{ employee.employee_number }}</td>
+                    <td class="border border-gray-300 p-2">{{ employee.department }}</td>
+                    <td class="border border-gray-300 p-2">{{ employee.position }}</td>
+                    <td class="border border-gray-300 p-2">{{ employee.hire_date }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
