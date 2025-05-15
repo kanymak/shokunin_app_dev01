@@ -10,23 +10,23 @@ app = Flask(__name__)
 
 # --- 設定 ---
 # 環境変数 DATABASE_URL があればそれを使い、なければSQLiteを使う
-database_url = os.environ.get('DATABASE_URL')
+#database_url = os.environ.get('DATABASE_URL')
 
-if database_url and database_url.startswith('postgres://'):
-    # RenderのPostgreSQLなど (postgres:// -> postgresql:// に置換)
-    app.config['SQLALCHEMY_DATABASE_URI'] = database_url.replace('postgres://', 'postgresql://', 1)
-elif database_url:
-     # postgresql:// で始まるURLなど（そのまま使う）
-     app.config['SQLALCHEMY_DATABASE_URI'] = database_url
-else:
-    # ローカル開発用のSQLite設定
-    # instanceフォルダを確実に使うように修正
-    basedir = os.path.abspath(os.path.dirname(__file__))
-    instance_path = os.path.join(basedir, 'instance')
-    if not os.path.exists(instance_path):
-        os.makedirs(instance_path)
+#if database_url and database_url.startswith('postgres://'):
+#    # RenderのPostgreSQLなど (postgres:// -> postgresql:// に置換)
+#    app.config['SQLALCHEMY_DATABASE_URI'] = database_url.replace('postgres://', 'postgresql://', 1)
+#elif database_url:
+#     # postgresql:// で始まるURLなど（そのまま使う）
+#     app.config['SQLALCHEMY_DATABASE_URI'] = database_url
+#else:
+#    # ローカル開発用のSQLite設定
+#    # instanceフォルダを確実に使うように修正
+basedir = os.path.abspath(os.path.dirname(__file__))
+instance_path = os.path.join(basedir, 'instance')
+if not os.path.exists(instance_path):
+    os.makedirs(instance_path)
     # データベースファイル名を適切に設定 (例: 'local_data.db')
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(instance_path, 'local_data.db')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(instance_path, 'local_data.db')
 
 # SQLALCHEMY_TRACK_MODIFICATIONS は非推奨なのでFalseのまま
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False

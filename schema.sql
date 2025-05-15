@@ -1,3 +1,32 @@
+-- User テーブル
+CREATE TABLE user (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL
+);
+
+-- CompetencyItem テーブル
+CREATE TABLE competency_item (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    category TEXT NOT NULL,
+    name TEXT NOT NULL,
+    criteria TEXT NOT NULL,
+    coefficient REAL NOT NULL
+);
+
+-- CompetencyEvaluation テーブル
+CREATE TABLE competency_evaluation (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER NOT NULL,
+    item_id INTEGER NOT NULL,
+    rating INTEGER NOT NULL,
+    improvement TEXT,
+    points REAL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES user(id),
+    FOREIGN KEY (item_id) REFERENCES competency_item(id)
+);
+
 -- employees テーブル
 CREATE TABLE employees (
     employee_id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -50,11 +79,8 @@ CREATE TABLE one_on_one_records (
     self_reflection TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     competency_evaluation_id INTEGER,
-    work_power_evaluation_id INTEGER,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (employee_id) REFERENCES employees(employee_id),
-    FOREIGN KEY (competency_evaluation_id) REFERENCES competency_evaluations(evaluation_id),
-    FOREIGN KEY (work_power_evaluation_id) REFERENCES work_power_evaluations(evaluation_id)
+    FOREIGN KEY (competency_evaluation_id) REFERENCES competency_evaluation(id)
 );
 
 -- job_skill_levels テーブル
@@ -97,34 +123,4 @@ CREATE TABLE ai_support_records (
     ai_chat_session TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (employee_id) REFERENCES employees(employee_id)
-);
-
--- evaluation_scales テーブル
-CREATE TABLE evaluation_scales (
-    scale_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    scale_name TEXT NOT NULL,
-    scale_value INTEGER NOT NULL,
-    description TEXT
-);
-
--- competency_evaluations テーブル
-CREATE TABLE competency_evaluations (
-    evaluation_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    record_id INTEGER NOT NULL,
-    competency TEXT NOT NULL,
-    scale_id INTEGER,
-    memo TEXT,
-    FOREIGN KEY (record_id) REFERENCES one_on_one_records(record_id),
-    FOREIGN KEY (scale_id) REFERENCES evaluation_scales(scale_id)
-);
-
--- work_power_evaluations テーブル
-CREATE TABLE work_power_evaluations (
-    evaluation_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    record_id INTEGER NOT NULL,
-    work_power TEXT NOT NULL,
-    scale_id INTEGER,
-    memo TEXT,
-    FOREIGN KEY (record_id) REFERENCES one_on_one_records(record_id),
-    FOREIGN KEY (scale_id) REFERENCES evaluation_scales(scale_id)
 );

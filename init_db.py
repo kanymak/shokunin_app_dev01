@@ -14,7 +14,7 @@ with app.app_context():
     print("Creating database tables...")
     # db.create_all() # Remove this line
 
-    conn = sqlite3.connect('instance/your_database.db')
+    conn = sqlite3.connect('instance/local_data.db')
     cursor = conn.cursor()
 
     # Drop existing tables first
@@ -26,7 +26,10 @@ with app.app_context():
         'one_on_one_records',
         'job_skill_levels',
         'job_task_lists',
-        'ai_support_records'
+        'ai_support_records',
+        'user',
+        'competency_item',
+        'competency_evaluation'
     ]
     for table in tables_to_drop:
         try:
